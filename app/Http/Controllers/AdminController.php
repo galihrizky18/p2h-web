@@ -33,12 +33,6 @@ class AdminController extends Controller
         return view('superAdmin.superAdminAdmin', compact('data'));
     }
 
-    public function tesGit(){
-        $tes = 'tes git';
-
-        return $tes;
-    }
-
     // SUPER ADMIN
     public function superDetailReport($id){
 
