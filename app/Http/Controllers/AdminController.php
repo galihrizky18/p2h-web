@@ -34,7 +34,9 @@ class AdminController extends Controller
     }
 
     public function tesGit(){
-        
+        $tes = 'tes git';
+
+        return $tes;
     }
 
     // SUPER ADMIN
