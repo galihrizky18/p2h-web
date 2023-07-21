@@ -65,7 +65,6 @@ Route::middleware(['auth', 'userRole:super_admin'])->group(function(){
         Route::get('deleteReportSuper/{id}', [AdminController::class, 'deleteReportSuper']);
         Route::get('deletePerbaikanSuper/{id}', [AdminController::class, 'deletePerbaikantSuper']);
 
-        Route::get('download/{path}', [AdminController::class, 'download']);
     });
 });
 
