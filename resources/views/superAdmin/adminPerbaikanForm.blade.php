@@ -91,7 +91,7 @@
                                                 <button type="button" class="btn btn-secondary"
                                                     style=" width: 100px">Update</button>
                                             </a>
-                                            <a href="">
+                                            <a href="/super-admin/pdf/perbaikanPDF/{{ $perbaikan->id }}">
                                                 <button type="button" class="btn btn-success ">Cetak</button>
                                             </a>
                                             <a href="/super-admin/deletePerbaikanSuper/{{ $perbaikan->id }}">

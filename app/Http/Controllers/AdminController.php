@@ -231,7 +231,7 @@ class AdminController extends Controller
             $nota = explode(',', $cekData->nota);
 
             foreach($nota as $n){
-                Storage::delete('public/nota/' . trim($n));
+                Storage::delete('nota/' . trim($n));
             }
             
         }
@@ -240,7 +240,7 @@ class AdminController extends Controller
         $file_paths = [];
         if ($request->hasFile('nota')) {
             foreach ($request->file('nota') as $file) {
-                $file_path = $file->store('public/nota');
+                $file_path = $file->store('nota');
     
                 $file_paths[] = $file_path;
             }
@@ -287,7 +287,8 @@ class AdminController extends Controller
             $nota = explode(',', $cekData->nota);
 
             foreach($nota as $n){
-                Storage::delete('public/nota/' . trim($n));
+            //    Storage::delete('storage/nota/' . trim($n));
+                Storage::delete('nota/' . trim($n));
             }
             
         }

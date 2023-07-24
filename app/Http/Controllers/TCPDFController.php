@@ -6,9 +6,11 @@ use App\Models\FormDocument;
 use App\Models\FormEngine;
 use App\Models\FormSafety;
 use App\Models\FormTools;
+use App\Models\Perbaikan;
 use App\Models\Pertanyaan;
 use App\Models\ReportForm;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use TCPDF;
 
 class TCPDFController extends Controller
@@ -22,6 +24,60 @@ class TCPDFController extends Controller
 
         $pdf = new TCPDF('P', 'cm', 'A4', true, 'UTF-8', false);
 
+        $this->strukturPDF($id,$pdf);
+
+        $namaFile = 'report-form.pdf';
+        $pdf->Output($namaFile, 'I');
+        exit;
+
+    }
+
+    public function perbaikanPDF($id){
+
+        $perbaikan = Perbaikan::where('id', $id)->first();
+        $dataReportPerbaikan = ReportForm::where('id', $perbaikan->id_report)->first();
+        
+
+        $pdf = new TCPDF('P', 'cm', 'A4', true, 'UTF-8', false);
+
+        $this->strukturPDF($dataReportPerbaikan->id, $pdf);
+
+        // Menambahkan Gambar Nota
+        $pdf->AddPage();
+        $pdf->SetFont('dejavusans', '', 12);
+        $pdf->SetMargins(1, 1, 1, true);
+        $pdf->setFont('times', 'B', 16);
+        $pdf->MultiCell(19, 1, 'BUKTI NOTA', 0, 'C');
+        $pdf->writeHTML("<hr>", true, false, false, false, '');
+
+        $namaNota = $perbaikan->nota;
+        if ($namaNota) {
+            $nota = public_path('storage/nota/' . $namaNota);
+            list($width, $height) = getimagesize($nota);
+            $scale = 20 / max($width, $height);
+        
+            // Hitung posisi tengah halaman PDF
+            $xPos = ($pdf->GetPageWidth() - $width * $scale) / 2;
+            $yPos = ($pdf->GetPageHeight() - $height * $scale) / 4;
+        
+            // Pastikan gambar tidak melebihi batas kertas
+            $xPos = max(0, min($xPos, $pdf->GetPageWidth() - $width * $scale));
+            $yPos = max(0, min($yPos, $pdf->GetPageHeight() - $height * $scale));
+        
+            $pdf->Image($nota, $xPos, $yPos, $width * $scale, $height * $scale);
+        } else {
+            $pdf->MultiCell(19, 1, 'Nota Tidak Ada', 0, 'C', false, 2, 1, 3);
+        }
+        
+
+        $namaFile = 'perbaikan-report.pdf';
+        $pdf->Output($namaFile, 'I');
+        exit;
+
+    }
+
+    private function strukturPDF($id, $pdf){
+       
         // Database
         $dataReport = ReportForm::where('id', $id)->first();
 
@@ -256,12 +312,6 @@ class TCPDFController extends Controller
         $pdf->MultiCell(4, 0.5, 'Driver Shift 1', 0, 'C', false, 6, 2, 7);
         $pdf->MultiCell(4, 0.5, 'Driver Shift 2', 0, 'C', false, 6, 6, 7);
         $pdf->MultiCell(4, 0.5, 'GA Transport', 0, 'C', false, 6, 14, 7);
-
-
-        $namaFile = 'report-form.pdf';
-        $pdf->Output($namaFile, 'I');
-        exit;
-
     }
 }
 

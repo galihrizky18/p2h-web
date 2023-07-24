@@ -65,7 +65,8 @@ Route::middleware(['auth', 'userRole:super_admin'])->group(function(){
         Route::get('deletePerbaikanSuper/{id}', [AdminController::class, 'deletePerbaikantSuper']);
 
         Route::prefix('pdf')->group(function(){
-            Route::get('reportPDF/{id}', [TCPDFController::class, 'reportFormAdmin']);;
+            Route::get('reportPDF/{id}', [TCPDFController::class, 'reportFormAdmin']);
+            Route::get('perbaikanPDF/{id}', [TCPDFController::class, 'perbaikanPDF']);
         });
     });
 });
