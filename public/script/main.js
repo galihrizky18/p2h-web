@@ -17,7 +17,7 @@ $("#driverAdminDashboard").DataTable({
     ordering: false,
     info: false,
     searching: false,
-    scrollY: "105px", // Ganti dengan tinggi yang sesuai
+    scrollY: "300px", // Ganti dengan tinggi yang sesuai
     scrollCollapse: true,
     autoWidth: false,
 });
@@ -26,7 +26,7 @@ $("#unitAdminDashboard").DataTable({
     ordering: false,
     info: false,
     searching: false,
-    scrollY: "105px", // Ganti dengan tinggi yang sesuai
+    scrollY: "300px", // Ganti dengan tinggi yang sesuai
     scrollCollapse: true,
     autoWidth: false,
 });
@@ -35,7 +35,7 @@ $("#bengkelAdminDashboard").DataTable({
     ordering: false,
     info: false,
     searching: false,
-    scrollY: "105px", // Ganti dengan tinggi yang sesuai
+    scrollY: "300px", // Ganti dengan tinggi yang sesuai
     scrollCollapse: true,
     autoWidth: false,
 });
@@ -44,7 +44,7 @@ $("#perbaikanAdminDashboard").DataTable({
     ordering: false,
     info: false,
     searching: false,
-    scrollY: "105px", // Ganti dengan tinggi yang sesuai
+    scrollY: "300px",
     scrollCollapse: true,
     autoWidth: false,
 });
@@ -53,7 +53,7 @@ $("#reportAdminDashboard").DataTable({
     ordering: false,
     info: false,
     searching: false,
-    scrollY: "400px", // Ganti dengan tinggi yang sesuai
+    scrollY: "700px", // Ganti dengan tinggi yang sesuai
     scrollCollapse: true,
     autoWidth: false,
 });

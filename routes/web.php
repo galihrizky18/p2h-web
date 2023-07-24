@@ -12,6 +12,7 @@ use App\Http\Controllers\SuperDriverController;
 use App\Http\Controllers\SuperUserController;
 use App\Http\Controllers\SuperUnitController;
 use App\Http\Controllers\SuperBengkelController;
+use App\Http\Controllers\TCPDFController;
 use App\Models\Driver;
 use Illuminate\Support\Facades\Route;
 
@@ -46,11 +47,9 @@ Route::middleware(['auth', 'userRole:super_admin'])->group(function(){
             Route::post('admin', [SuperUserController::class, 'storeAkunAdmin']);
     
         });
-
         Route::post('filter-report-super', [AdminController::class, 'filterReportSuper']);
         Route::post('filter-perbaikan-super', [AdminController::class, 'filterPerbaikanSuper']);
         Route::post('filter-perbaikan-selesai-super', [AdminController::class, 'filterPerbaikanSelesaiSuper']);
-
         Route::get('inputAdmin', function(){return view('superAdmin.superAdminInputAdmin');});
         Route::get('inputDriver', function(){return view('superAdmin.adminInputDriver');});
         Route::get('inputUnit', function(){return view('superAdmin.adminInputUnit');});
@@ -65,6 +64,9 @@ Route::middleware(['auth', 'userRole:super_admin'])->group(function(){
         Route::get('deleteReportSuper/{id}', [AdminController::class, 'deleteReportSuper']);
         Route::get('deletePerbaikanSuper/{id}', [AdminController::class, 'deletePerbaikantSuper']);
 
+        Route::prefix('pdf')->group(function(){
+            Route::get('reportPDF/{id}', [TCPDFController::class, 'reportFormAdmin']);;
+        });
     });
 });
 
@@ -78,13 +80,10 @@ Route::middleware(['auth', 'userRole:admin'])->group(function(){
         Route::prefix('inputUser')->group(function(){
             Route::get('driver', [UserController::class, 'inputAkunDriver']);
             Route::post('driver', [UserController::class, 'storeAkunDriver']);
-    
         });
-
         Route::post('filter-report-admins', [AdminController::class, 'filterReportAdmin']);
         Route::post('filter-report-perbaikan-admin', [AdminController::class, 'filterPerbaikanSuper']);
         Route::post('filter-report-admin', [AdminController::class, 'filterPerbaikanSelesaiAdmin']);
-
         Route::get('inputDriver', function(){return view('admin.adminInputDriver');});
         Route::get('inputUnit', function(){return view('admin.adminInputUnit');});
         Route::get('inputBengkel', function(){return view('admin.adminInputBengkel');});
@@ -96,6 +95,11 @@ Route::middleware(['auth', 'userRole:admin'])->group(function(){
         Route::get('updatePerbaikan/{id}', [AdminController::class, 'updatePerbaikan']);
         Route::post('updatePerbaikan/{id}', [AdminController::class, 'storeUpdatePerbaikan']);
         Route::get('tambahPerbaikan', [AdminController::class, 'tambahPerbaikan']);
+
+        Route::prefix('pdf')->group(function(){
+            Route::get('reportPDF/{id}', [TCPDFController::class, 'reportFormAdmin']);;
+
+        });
     });
 });
 
