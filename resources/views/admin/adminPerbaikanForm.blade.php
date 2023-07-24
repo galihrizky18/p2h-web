@@ -81,10 +81,6 @@
                                                 <button type="button" class="btn btn-info "
                                                     style="margin-right: 10px; width: 100px">Update</button>
                                             </a>
-                                            <a href="">
-                                                <button type="button" class="btn btn-success "
-                                                    style="margin-right: 10px; width: 130px">Cetak Laporan</button>
-                                            </a>
                                         </div>
                                     </td>
                                 </tr>

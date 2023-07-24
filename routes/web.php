@@ -64,6 +64,9 @@ Route::middleware(['auth', 'userRole:super_admin'])->group(function(){
         Route::get('deleteReportSuper/{id}', [AdminController::class, 'deleteReportSuper']);
         Route::get('deletePerbaikanSuper/{id}', [AdminController::class, 'deletePerbaikantSuper']);
 
+        Route::prefix('pdf')->group(function(){
+            Route::get('reportPDF/{id}', [TCPDFController::class, 'reportFormAdmin']);;
+        });
     });
 });
 
@@ -94,8 +97,7 @@ Route::middleware(['auth', 'userRole:admin'])->group(function(){
         Route::get('tambahPerbaikan', [AdminController::class, 'tambahPerbaikan']);
 
         Route::prefix('pdf')->group(function(){
-            Route::get('reportPDF', [TCPDFController::class, 'reportFormAdmin']);;
-            Route::get('reportPDFView', [TCPDFController::class, 'view']);;
+            Route::get('reportPDF/{id}', [TCPDFController::class, 'reportFormAdmin']);;
 
         });
     });

@@ -64,7 +64,7 @@
                                             <a href="/admin/detailReport/{{ $data->id }}" class="detail">
                                                 <button type="button" class="btn btn-warning ">Detail</button>
                                             </a>
-                                            <a href="">
+                                            <a href="/admin/pdf/reportPDF/{{ $data->id }}">
                                                 <button type="button" class="btn btn-success ">Cetak Laporan</button>
                                             </a>
                                         </div>

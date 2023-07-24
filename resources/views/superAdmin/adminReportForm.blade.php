@@ -68,7 +68,7 @@
                                                 <button type="button" class="btn btn-info " style=" width: 130px">Input
                                                     Perbaikan</button>
                                             </a>
-                                            <a href="">
+                                            <a href="/super-admin/pdf/reportPDF/{{ $data->id }}">
                                                 <button type="button" class="btn btn-success ">Cetak</button>
                                             </a>
                                             <a href="/super-admin/deleteReportSuper/{{ $data->id }}">
