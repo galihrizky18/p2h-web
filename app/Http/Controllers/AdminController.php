@@ -18,6 +18,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 use Psy\Readline\Hoa\Console;
@@ -460,7 +461,66 @@ class AdminController extends Controller
     }
 
     
+    public function storeAdmin(Request $request){
 
+        $dataAdmin = Admin::all();
+
+        if ($request->ajax()) {
+            // Validasi data form jika diperlukan
+            $request->validate([
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'gender' => 'required',
+                'tempat_lahir' => 'required',
+                'tanggal_lahir' => 'required',
+                'no_telepon' => 'required|numeric',
+                'email' => 'required|email:dns',
+                'kota' => 'required',
+                'kode_pos' => 'required',
+                'alamat' => 'required',
+                'kebangsaan' => 'required',
+            ],[
+                'first_name.required' => 'First Name harus diisi',
+                'last_name.required' => 'Last Name harus diisi',
+                'gender.required' => 'Gender tidak boleh kosong',
+                'tempat_lahir.required' => 'Tempat Lahir tidak boleh kosong',
+                'tanggal_lahir.required' => 'Tanggal Lahir tidak boleh kosong',
+                'no_telepon.required' => 'No Telepon tidak boleh kosong',
+                'no_telepon.numeric' => 'No Telepon harus berupa angka',
+                'email.required' => 'Email tidak boleh kosong',
+                'email.email' => 'Ini bukan format email yang benar',
+                'kota.required' => 'Kota tidak boleh kosong',
+                'kode_pos.required' => 'Kode Pos tidak boleh kosong',
+                'alamat.required' => 'Alamat harus diisi',
+                'kebangsaan.required' => 'Kebangsaan tidak boleh kosong',
+            ]
+            );
+    
+            // Simpan data admin baru ke database
+            $admin = new Admin();
+            $admin->first_name = $request->input('first_name');
+            $admin->last_name = $request->input('last_name');
+            $admin->gender = $request->input('gender');
+            $admin->tempat_lahir = $request->input('tempat_lahir');
+            $admin->tanggal_lahir = $request->input('tanggal_lahir');
+            $admin->no_telepon = $request->input('no_telepon');
+            $admin->email = $request->input('email');
+            $admin->kota = $request->input('kota');
+            $admin->kode_pos = $request->input('kode_pos');
+            $admin->alamat = $request->input('alamat');
+            $admin->kebangsaan = $request->input('kebangsaan');
+            
+            $admin->save();
+
+            
+    
+            // Berikan respon sukses ke client
+            return response()->json($dataAdmin);
+        } else {
+            return response()->json('Fail');
+        }
+
+    }
 
 
 
@@ -513,7 +573,6 @@ class AdminController extends Controller
 
         Admin::create($validatedData);
 
-
         $log = new ActivityLog();
         $log->login_time = session()->get('login_time', 'default');
         $log->user_id = Auth::user()->id;
@@ -522,7 +581,7 @@ class AdminController extends Controller
         $log->description = 'Input Data Admin ke sistem';
         $log->save();
         
-        return redirect('/super-admin/admin')->with('success', 'Akun Admin berhasil diBuat');
+        return redirect()->route('super-admin/admin');
     }
 
     /**

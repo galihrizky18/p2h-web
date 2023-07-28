@@ -15,6 +15,10 @@
   list-style: none;
 }
 
+.topbar {
+  display: none;
+}
+
 .bodys {
   background-color: var(--bgcolor);
   display: flex;
@@ -22,8 +26,7 @@
 }
 
 .body {
-  padding-left: 200px;
-  width: 100vw;
+  margin-left: 200px;
 }
 
 .error {
@@ -280,7 +283,7 @@
 }
 
 .dashboard-admin-body {
-  width: 1114px;
+  width: 100%;
   padding: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -358,11 +361,14 @@
   font-size: 20px;
 }
 .dashboard-admin-body .container2 {
-  display: flex;
-  flex-direction: row;
   justify-content: flex-end;
   padding-right: 20px;
   align-items: center;
+}
+.dashboard-admin-body .container2 .item {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
 }
 .dashboard-admin-body .container2 .username {
   margin-right: 15px;
@@ -581,6 +587,7 @@
 }
 
 .halaman-admin-edit-driver {
+  width: 83vw;
   padding: 20px 20px;
 }
 .halaman-admin-edit-driver .judul-halaman {
@@ -774,6 +781,7 @@
 }
 
 .halaman-admin-edit-unit {
+  width: 83vw;
   padding: 20px 20px;
 }
 .halaman-admin-edit-unit .judul-halaman {
@@ -927,6 +935,7 @@
 }
 
 .halaman-admin-edit-bengkel {
+  width: 83vw;
   padding: 20px 20px;
 }
 .halaman-admin-edit-bengkel .judul-halaman {
@@ -1002,6 +1011,7 @@
 }
 
 .halaman-report-form {
+  width: 83vw;
   height: 100vh;
 }
 .halaman-report-form .judul-halaman {
@@ -1048,6 +1058,7 @@
 }
 
 .halaman-perbaikan-report {
+  width: 83vw;
   height: 100vh;
 }
 .halaman-perbaikan-report .judul-halaman {
@@ -1063,20 +1074,9 @@
   border-radius: 10px;
   padding: 10px;
 }
-.halaman-perbaikan-report .main-perbaikan-report .menu {
+.halaman-perbaikan-report .main-perbaikan-report .filter button {
+  margin-top: 15px;
   margin-left: 10px;
-}
-.halaman-perbaikan-report .main-perbaikan-report .menu ul {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-}
-.halaman-perbaikan-report .main-perbaikan-report .menu ul li {
-  margin-right: 15px;
-}
-.halaman-perbaikan-report .main-perbaikan-report .menu ul li button {
-  width: 100px;
 }
 .halaman-perbaikan-report .data-report-form {
   background-color: var(--bgcard);
@@ -1096,6 +1096,7 @@
 }
 
 .halaman-admin-driver {
+  width: 83vw;
   height: 100vh;
 }
 .halaman-admin-driver .judul-halaman {
@@ -1137,8 +1138,23 @@
   border-radius: 10px;
   padding: 10px;
 }
+.halaman-admin-driver .modal .item {
+  margin-bottom: 10px;
+}
+.halaman-admin-driver #tambahAkunDriverSuper .container2 {
+  display: flex;
+  flex-direction: column;
+}
+.halaman-admin-driver #inputDriverAdmin .item {
+  margin-bottom: 10px;
+}
+.halaman-admin-driver #inputAkunDriverAdmin .container2 {
+  display: flex;
+  flex-direction: column;
+}
 
 .halaman-admin-unit {
+  width: 83vw;
   height: 100vh;
 }
 .halaman-admin-unit .judul-halaman {
@@ -1177,8 +1193,12 @@
   border-radius: 10px;
   padding: 10px;
 }
+.halaman-admin-unit #inputUnitSuper .item {
+  margin-bottom: 10px;
+}
 
 .halaman-admin-bengkel {
+  width: 83vw;
   height: 100vh;
 }
 .halaman-admin-bengkel .judul-halaman {
@@ -1217,8 +1237,12 @@
   border-radius: 10px;
   padding: 10px;
 }
+.halaman-admin-bengkel #inputBengkelSuper .item {
+  margin-bottom: 10px;
+}
 
 .halaman-admin-input-perbaikan {
+  width: 83vw;
   padding: 20px 20px;
 }
 .halaman-admin-input-perbaikan .judul-halaman {
@@ -1569,6 +1593,7 @@
 }
 
 .halaman-super-admin-admin {
+  width: 83vw;
   height: 100vh;
 }
 .halaman-super-admin-admin .judul-halaman {
@@ -1609,6 +1634,16 @@
   margin-top: 20px;
   border-radius: 10px;
   padding: 10px;
+}
+.halaman-super-admin-admin .modal .kolom .item {
+  margin-bottom: 10px;
+}
+.halaman-super-admin-admin .akunAdmin .item {
+  margin-bottom: 10px;
+}
+.halaman-super-admin-admin .akunAdmin .container2 {
+  display: flex;
+  flex-direction: column;
 }
 
 .halaman-super-admin-input-admin {
@@ -1803,6 +1838,7 @@
 }
 
 .halaman-super-admin-edit-admin {
+  width: 83vw;
   padding: 20px 20px;
 }
 .halaman-super-admin-edit-admin .judul-halaman {
@@ -1918,6 +1954,7 @@
 }
 
 .halaman-report-form-super {
+  width: 83vw;
   height: 100vh;
 }
 .halaman-report-form-super .judul-halaman {
@@ -2088,6 +2125,7 @@
 }
 
 .halaman-driver-dashboard {
+  width: 84vw;
   padding: 20px;
   height: 100vh;
   display: flex;
@@ -2304,6 +2342,7 @@
 }
 
 .halaman-driver {
+  width: 83vw;
   padding: 20px;
 }
 .halaman-driver .judul {
@@ -2375,6 +2414,7 @@
 }
 
 .halaman-preview-form {
+  width: 83vw;
   padding: 30px;
 }
 .halaman-preview-form .judul {
@@ -2448,6 +2488,7 @@
 }
 
 .halaman-driver-report {
+  width: 84vw;
   padding: 15px;
 }
 .halaman-driver-report .judul {

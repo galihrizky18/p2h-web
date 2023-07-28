@@ -64,6 +64,8 @@ Route::middleware(['auth', 'userRole:super_admin'])->group(function(){
         Route::get('deleteReportSuper/{id}', [AdminController::class, 'deleteReportSuper']);
         Route::get('deletePerbaikanSuper/{id}', [AdminController::class, 'deletePerbaikantSuper']);
 
+        Route::post('storeAdmin', [AdminController::class, 'storeAdmin']);
+
         Route::prefix('pdf')->group(function(){
             Route::get('reportPDF/{id}', [TCPDFController::class, 'reportFormAdmin']);
             Route::get('perbaikanPDF/{id}', [TCPDFController::class, 'perbaikanPDF']);
@@ -98,7 +100,8 @@ Route::middleware(['auth', 'userRole:admin'])->group(function(){
         Route::get('tambahPerbaikan', [AdminController::class, 'tambahPerbaikan']);
 
         Route::prefix('pdf')->group(function(){
-            Route::get('reportPDF/{id}', [TCPDFController::class, 'reportFormAdmin']);;
+            Route::get('reportPDF/{id}', [TCPDFController::class, 'reportFormAdmin']);
+            Route::get('perbaikanPDF/{id}', [TCPDFController::class, 'perbaikanPDF']);
 
         });
     });
@@ -121,10 +124,12 @@ Route::middleware(['auth', 'userRole:driver', 'web'])->group(function(){
             Route::get('storeDatabase', [FormController::class, 'storeDatabase']);
         });
         Route::get('report', [DriverController::class, 'report'])->name('driverReport');
-
         Route::post('filter-report-driver', [DriverController::class, 'filterReport']);
-
         Route::get('detailReport/{id}', [DriverController::class, 'detailReport'])->name('detailReport');
+
+        Route::prefix('pdf')->group(function(){
+            Route::get('reportPDF/{id}', [TCPDFController::class, 'reportFormAdmin']);
+        });
     });
 });
 

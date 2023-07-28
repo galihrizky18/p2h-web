@@ -1,6 +1,4 @@
-
-
-<div class="sidebarAdmin">
+<div class="sidebarAdmin" id="sidebarAdmin">
     <div class="main-sidebar">
         <div class="logo">
             <img src="{{ asset('asset/logo_sbs.png') }}" alt="">
@@ -21,28 +19,28 @@
                         <span>Driver</span>
                     </li>
                 </a>
-                
+
                 <a href="/admin/unit">
                     <li>
                         <img src="{{ asset('asset/admin/unit-icon.svg') }}" alt="">
                         <span>Unit</span>
                     </li>
                 </a>
-                
+
                 <a href="/admin/bengkel">
                     <li>
                         <img src="{{ asset('asset/admin/bengkel-icon.svg') }}" alt="">
                         <span>Bengkel</span>
                     </li>
                 </a>
-                
+
                 <a href="/admin/reportForm">
                     <li>
                         <img src="{{ asset('asset/admin/report-icon.svg') }}" alt="">
                         <span>Report Form</span>
                     </li>
                 </a>
-                
+
                 <a href="/admin/perbaikan">
                     <li>
                         <img src="{{ asset('asset/admin/perbaikan-icon.svg') }}" alt="">
@@ -52,14 +50,14 @@
             </ul>
 
             <div class="menu-sidebar-admin" id="profileAdmin">
-                
+
                 <a href="{{ route('logout') }}">
                     <div class="item">
                         <img src="{{ asset('asset/admin/logout-icon.svg') }}" alt="">
                         <span>Logout</span>
                     </div>
                 </a>
-                
+
             </div>
             <div class="profile" onclick="openMenuSidebarAdmin()">
                 <div class="item item1">
@@ -70,5 +68,3 @@
         </div>
     </div>
 </div>
-
-

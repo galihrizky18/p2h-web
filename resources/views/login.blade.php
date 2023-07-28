@@ -22,12 +22,12 @@
                     <span class="namaPT">PT. Satria Bahana Sarana</span>
                 </div>
 
-                @if(session('aksesDitolak'))
+                @if (session('aksesDitolak'))
                     <div class="alert alert-danger">
                         {{ session('aksesDitolak') }}
                     </div>
                 @endif
-                @if($errors->has('error'))
+                @if ($errors->has('error'))
                     <div class="alert alert-danger">
                         {{ $errors->first('error') }}
                     </div>
@@ -43,14 +43,12 @@
                     </div>
 
                     <div class="container forgotPassword">
-                        <a href="">
-                            <span>Forgot Password?</span>
-                        </a>
+
                     </div>
 
                     <div class="container button">
                         <button type="submit" class="btn btn-success">Sign In</button>
-                    </div>            
+                    </div>
                 </form>
             </div>
         </div>

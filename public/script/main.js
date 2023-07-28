@@ -10,6 +10,7 @@ $(document).ready(function () {
                 className: "text-center",
             },
         ],
+        // serverSide: true,
     });
 });
 $("#driverAdminDashboard").DataTable({
@@ -19,7 +20,7 @@ $("#driverAdminDashboard").DataTable({
     searching: false,
     scrollY: "300px", // Ganti dengan tinggi yang sesuai
     scrollCollapse: true,
-    autoWidth: false,
+    autoWidth: true,
 });
 $("#unitAdminDashboard").DataTable({
     paging: false,
@@ -28,7 +29,7 @@ $("#unitAdminDashboard").DataTable({
     searching: false,
     scrollY: "300px", // Ganti dengan tinggi yang sesuai
     scrollCollapse: true,
-    autoWidth: false,
+    autoWidth: true,
 });
 $("#bengkelAdminDashboard").DataTable({
     paging: false,
@@ -37,7 +38,7 @@ $("#bengkelAdminDashboard").DataTable({
     searching: false,
     scrollY: "300px", // Ganti dengan tinggi yang sesuai
     scrollCollapse: true,
-    autoWidth: false,
+    autoWidth: true,
 });
 $("#perbaikanAdminDashboard").DataTable({
     paging: false,
@@ -46,7 +47,7 @@ $("#perbaikanAdminDashboard").DataTable({
     searching: false,
     scrollY: "300px",
     scrollCollapse: true,
-    autoWidth: false,
+    autoWidth: true,
 });
 $("#reportAdminDashboard").DataTable({
     paging: false,
@@ -55,8 +56,10 @@ $("#reportAdminDashboard").DataTable({
     searching: false,
     scrollY: "700px", // Ganti dengan tinggi yang sesuai
     scrollCollapse: true,
-    autoWidth: false,
+    autoWidth: true,
 });
+
+let table;
 
 // Sub Menu SIdebar Admin
 let subMenuSidebarAdmin = document.getElementById("profileAdmin");
@@ -294,15 +297,14 @@ $(document).ready(function () {
                         data: null,
                         render: function (perbaikan) {
                             const buttons =
-                                '<a href="">' +
-                                '<button type="button" class="btn btn-info " style="margin-right: 10px; width: 100px">Detail</button>' +
-                                "</a>" +
                                 '<a href="/super-admin/updatePerbaikan/' +
                                 perbaikan.id +
                                 '">' +
                                 '<button type="button" class="btn btn-secondary" style="margin-right: 10px; width: 100px">Update</button>' +
                                 "</a>" +
-                                '<a href="#">' +
+                                '<a href="/super-admin/pdf/perbaikanPDF/' +
+                                perbaikan.id +
+                                '">' +
                                 '<button type="button" class="btn btn-success" style="margin-right: 10px; width: 100px">Cetak</button>' +
                                 "</a>" +
                                 '<a href="/super-admin/deletePerbaikanSuper/' +
@@ -407,15 +409,14 @@ $(document).ready(function () {
                         data: null,
                         render: function (perbaikan) {
                             const buttons =
-                                '<a href="">' +
-                                '<button type="button" class="btn btn-info " style="margin-right: 10px; width: 100px">Detail</button>' +
-                                "</a>" +
                                 '<a href="/super-admin/updatePerbaikan/' +
                                 perbaikan.id +
                                 '">' +
-                                '<button type="button" class="btn btn-warning" style="margin-right: 10px; width: 100px">Detail</button>' +
+                                '<button type="button" class="btn btn-secondary" style="margin-right: 10px; width: 100px">Update</button>' +
                                 "</a>" +
-                                '<a href="#">' +
+                                '<a href="/super-admin/pdf/perbaikanPDF/' +
+                                perbaikan.id +
+                                '">' +
                                 '<button type="button" class="btn btn-success" style="margin-right: 10px; width: 100px">Cetak</button>' +
                                 "</a>" +
                                 '<a href="/super-admin/deletePerbaikanSuper/' +
@@ -622,13 +623,15 @@ $(document).ready(function () {
                         data: null,
                         render: function (perbaikan) {
                             const buttons =
+                                '<a href="/admin/pdf/perbaikanPDF/' +
+                                perbaikan.id +
+                                '">' +
+                                '<button type="button" class="btn btn-success" style="margin-right: 10px; width: 130px">Cetak Laporan</button>' +
+                                "</a>" +
                                 '<a href="/admin/updatePerbaikan/' +
                                 perbaikan.id +
                                 '">' +
                                 '<button type="button" class="btn btn-info" style="margin-right: 10px; width: 100px">Update</button>' +
-                                "</a>" +
-                                '<a href="#">' +
-                                '<button type="button" class="btn btn-success" style="margin-right: 10px; width: 130px">Cetak Laporan</button>' +
                                 "</a>";
 
                             return buttons;
@@ -727,13 +730,15 @@ $(document).ready(function () {
                         data: null,
                         render: function (perbaikan) {
                             const buttons =
+                                '<a href="/admin/pdf/perbaikanPDF/' +
+                                perbaikan.id +
+                                '">' +
+                                '<button type="button" class="btn btn-success" style="margin-right: 10px; width: 130px">Cetak Laporan</button>' +
+                                "</a>" +
                                 '<a href="/admin/updatePerbaikan/' +
                                 perbaikan.id +
                                 '">' +
                                 '<button type="button" class="btn btn-info" style="margin-right: 10px; width: 100px">Update</button>' +
-                                "</a>" +
-                                '<a href="#">' +
-                                '<button type="button" class="btn btn-success" style="margin-right: 10px; width: 130px">Cetak Laporan</button>' +
                                 "</a>";
                             return buttons;
                         },
@@ -816,7 +821,9 @@ $(document).ready(function () {
                                 '">' +
                                 '<button type="button" class="btn btn-warning" style="margin-right: 10px; width: 100px">Detail</button>' +
                                 "</a>" +
-                                '<a href="#">' +
+                                '<a href="/driver/pdf/reportPDF/' +
+                                data.id +
+                                '">' +
                                 '<button type="button" class="btn btn-success" style="margin-right: 10px; width: 130px">Cetak Laporan</button>' +
                                 "</a>";
                             return buttons;
@@ -888,3 +895,26 @@ function filterPerbaikanSelesai(tanggalAwal, tanggalAkhir, func, link) {
         },
     });
 }
+
+// Top Bar
+// function topBarClick() {
+//     const sidebar = document.querySelector(".sidebarSuperAdmin");
+//     sidebar.style.display = "block";
+// }
+// // Fungsi untuk menyembunyikan sidebar
+// function hideSidebar() {
+//     const sidebar = document.querySelector(".sidebarSuperAdmin");
+//     sidebar.style.display = "none";
+// }
+// // Menambahkan event listener untuk menangani klik pada burger-menu
+// document.getElementById("burger").addEventListener("click", topBarClick);
+
+// // Menambahkan event listener untuk menangani klik di luar kontainer sidebar
+// document.addEventListener("click", function (event) {
+//     const sidebar = document.querySelector(".sidebarSuperAdmin");
+//     const target = event.target;
+//     // Jika target klik bukan elemen sidebar atau burger-menu, sembunyikan sidebar
+//     if (!sidebar.contains(target) && target.id !== "burger") {
+//         hideSidebar();
+//     }
+// });

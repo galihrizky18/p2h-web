@@ -1,8 +1,58 @@
-@media only screen and (max-width: 400px) {
+:root {
+    --border: 2px black solid;
+    --bgcolor: #dadada;
+    --bgcard: #ffffff;
+    --boxshadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+    --fontredup: #7e7e7e;
+}
+
+@media only screen and (max-width: 480px) {
+    // sidebar
     .sidebarSuperAdmin {
+        // display: block;
         display: none;
+        .main-sidebar {
+            padding: 10px;
+            .menu {
+                ul {
+                    li {
+                        line-height: 0;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .topbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: var(--bgcard);
+        box-shadow: var(--boxshadow);
+        padding: 0.2em;
+
+        .title {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: black;
+        }
+        #burger {
+            width: 80%;
+            height: 80%;
+        }
     }
     .body {
-        padding-left: 0;
+        margin-left: 0;
+        margin-top: 3.3em;
+    }
+    .dashboard-admin-body {
+        padding: 15px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        .container2 {
+            display: none;
+        }
     }
 }

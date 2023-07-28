@@ -24,12 +24,12 @@
             </div>
 
             <div class="isi-halaman">
-                    <div class="personal-information">
+                <div class="personal-information">
                     <div class="container1">
                         <img src="{{ asset('asset/profile-icon.svg') }}" alt="">
                         <div class="detail">
-                            <span >Galih Rizky</span>
-                            <span >username</span>
+                            <span>Galih Rizky</span>
+                            <span>username</span>
                         </div>
                     </div>
 
@@ -62,7 +62,7 @@
                             <label for="">Kebangsaan</label>
                             <span>Indonesia</span>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>

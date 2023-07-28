@@ -86,17 +86,18 @@
                                 <tr>
                                     <td>{{ $p->pertanyaan }}</td>
                                     <td>
-                                        @if ($dataDocument["pertanyaan_".$p->id] == 'benar')
+                                        @if ($dataDocument['pertanyaan_' . $p->id] == 'benar')
                                             <img src="{{ asset('asset/check.svg') }}" alt="">
                                         @endif
                                     </td>
                                     <td>
-                                        @if ($dataDocument["pertanyaan_".$p->id] == 'salah')
+                                        @if ($dataDocument['pertanyaan_' . $p->id] == 'salah')
                                             <img src="{{ asset('asset/wrong.svg') }}" alt="">
                                         @endif
                                     </td>
                                     <td>
-                                        <input type="text" name="keterangan" id="keterangan" value="{{ $dataDocument["keterangan_".$p->id] }}" readonly>
+                                        <input type="text" name="keterangan" id="keterangan"
+                                            value="{{ $dataDocument['keterangan_' . $p->id] }}" readonly>
                                     </td>
                                 </tr>
                             @endforeach
@@ -125,17 +126,18 @@
                                 <tr>
                                     <td>{{ $p->pertanyaan }}</td>
                                     <td>
-                                        @if ($dataSafety["pertanyaan_".$p->id] == 'benar')
-                                        <img src="{{ asset('asset/check.svg') }}" alt="">
-                                    @endif
+                                        @if ($dataSafety['pertanyaan_' . $p->id] == 'benar')
+                                            <img src="{{ asset('asset/check.svg') }}" alt="">
+                                        @endif
                                     </td>
                                     <td>
-                                        @if ($dataSafety["pertanyaan_".$p->id] == 'salah')
+                                        @if ($dataSafety['pertanyaan_' . $p->id] == 'salah')
                                             <img src="{{ asset('asset/wrong.svg') }}" alt="">
                                         @endif
                                     </td>
                                     <td>
-                                        <input type="text" name="keterangan" id="keterangan" value="{{ $dataSafety["keterangan_".$p->id] }}" readonly>
+                                        <input type="text" name="keterangan" id="keterangan"
+                                            value="{{ $dataSafety['keterangan_' . $p->id] }}" readonly>
                                     </td>
                                 </tr>
                             @endforeach
@@ -164,17 +166,18 @@
                                 <tr>
                                     <td>{{ $p->pertanyaan }}</td>
                                     <td>
-                                        @if ($dataEngine["pertanyaan_".$p->id] == 'benar')
-                                        <img src="{{ asset('asset/check.svg') }}" alt="">
-                                    @endif
+                                        @if ($dataEngine['pertanyaan_' . $p->id] == 'benar')
+                                            <img src="{{ asset('asset/check.svg') }}" alt="">
+                                        @endif
                                     </td>
                                     <td>
-                                        @if ($dataEngine["pertanyaan_".$p->id] == 'salah')
+                                        @if ($dataEngine['pertanyaan_' . $p->id] == 'salah')
                                             <img src="{{ asset('asset/wrong.svg') }}" alt="">
                                         @endif
                                     </td>
                                     <td>
-                                        <input type="text" name="keterangan" id="keterangan" value="{{ $dataEngine["keterangan_".$p->id] }}" readonly>
+                                        <input type="text" name="keterangan" id="keterangan"
+                                            value="{{ $dataEngine['keterangan_' . $p->id] }}" readonly>
                                     </td>
                                 </tr>
                             @endforeach
@@ -203,17 +206,18 @@
                                 <tr>
                                     <td>{{ $p->pertanyaan }}</td>
                                     <td>
-                                        @if ($dataTools["pertanyaan_".$p->id] == 'benar')
-                                        <img src="{{ asset('asset/check.svg') }}" alt="">
-                                    @endif
+                                        @if ($dataTools['pertanyaan_' . $p->id] == 'benar')
+                                            <img src="{{ asset('asset/check.svg') }}" alt="">
+                                        @endif
                                     </td>
                                     <td>
-                                        @if ($dataTools["pertanyaan_".$p->id] == 'salah')
+                                        @if ($dataTools['pertanyaan_' . $p->id] == 'salah')
                                             <img src="{{ asset('asset/wrong.svg') }}" alt="">
                                         @endif
                                     </td>
                                     <td>
-                                        <input type="text" name="keterangan" id="keterangan" value="{{ $dataTools["keterangan_".$p->id] }}" readonly>
+                                        <input type="text" name="keterangan" id="keterangan"
+                                            value="{{ $dataTools['keterangan_' . $p->id] }}" readonly>
                                     </td>
                                 </tr>
                             @endforeach
@@ -221,7 +225,7 @@
                     </table>
                 </div>
             </div>
-            
+
             <div class="tombol">
                 <a href="/admin/reportForm">
                     <button type="button" class="btn btn-warning">Back</button>

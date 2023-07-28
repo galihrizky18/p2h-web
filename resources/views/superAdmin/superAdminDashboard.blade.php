@@ -9,18 +9,21 @@
 @section('body')
     {{-- untuk body dalam halaman --}}
     <div class="body">
-        <div class="dashboard-admin-body">
+        <x-topbar></x-topbar>
+        <div class="dashboard-admin-body ">
             <div class="container1 kolom">
                 <span class="welcome-admin">Welcome {{ $dataUser->admin->first_name }}
                     {{ $dataUser->admin->last_name }}</span>
             </div>
 
             <div class="container2 kolom">
-                <div class="username">
-                    {{ $dataUser->admin->first_name }} {{ $dataUser->admin->last_name }}
-                </div>
-                <div class="gambar">
-                    <img src="{{ asset('asset/admin/profile-icon.svg') }}" alt="">
+                <div class="item">
+                    <div class="username ">
+                        {{ $dataUser->admin->first_name }} {{ $dataUser->admin->last_name }}
+                    </div>
+                    <div class="gambar">
+                        <img src="{{ asset('asset/admin/profile-icon.svg') }}" alt="">
+                    </div>
                 </div>
             </div>
 

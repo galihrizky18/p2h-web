@@ -18,7 +18,7 @@
                     <div class="filter1 filters">
                         <label for="">Filter Tanggal Report</label>
                         <div class="range-date">
-                            <input type="date" name="tanggal_awal" id="tanggal_awal" >
+                            <input type="date" name="tanggal_awal" id="tanggal_awal">
                             <input type="date" name="tanggal_akhir" id="tanggal_akhir">
                             <button type="submit" id="tombol-filter-report-driver">Cari</button>
                         </div>
@@ -27,7 +27,7 @@
             </div>
 
             <div class="isi">
-                @if(session('success'))
+                @if (session('success'))
                     <div class="alert alert-success">
                         {{ session('success') }}
                     </div>
@@ -58,9 +58,12 @@
                                     <td>
                                         <div class="tombol">
                                             <a href="/driver/detailReport/{{ $data->id }}">
-                                                <button type="button" class="btn btn-warning" style="margin-right: 10px; width: 100px">Detail</button>
+                                                <button type="button" class="btn btn-warning"
+                                                    style="margin-right: 10px; width: 100px">Detail</button>
                                             </a>
-                                                <button type="button" class="btn btn-success" style="margin-right: 10px; width: 130px">Cetak Laporan</button>
+                                            <a href="/driver/pdf/reportPDF/{{ $data->id }}">
+                                                <button type="button" class="btn btn-success"
+                                                    style="margin-right: 10px; width: 130px">Cetak Laporan</button>
                                             </a>
                                         </div>
                                     </td>

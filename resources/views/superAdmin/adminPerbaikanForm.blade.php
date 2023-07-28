@@ -83,10 +83,6 @@
                                     </td>
                                     <td>
                                         <div class="tombol">
-                                            <a href="">
-                                                <button type="button" class="btn btn-info "
-                                                    style=" width: 100px">Detail</button>
-                                            </a>
                                             <a href="/super-admin/updatePerbaikan/{{ $perbaikan->id }}">
                                                 <button type="button" class="btn btn-secondary"
                                                     style=" width: 100px">Update</button>

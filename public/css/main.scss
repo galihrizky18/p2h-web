@@ -14,6 +14,9 @@
     text-decoration: none;
     list-style: none;
 }
+.topbar {
+    display: none;
+}
 
 .bodys {
     background-color: var(--bgcolor);
@@ -22,8 +25,8 @@
 }
 
 .body {
-    padding-left: 200px; //sesuai dengan lebar sidebar yaitu 200px
-    width: 100vw;
+    margin-left: 200px; //sesuai dengan lebar sidebar yaitu 200px
+    // width: 100vw;
 }
 
 // Jika ad error
@@ -281,8 +284,7 @@
 }
 // Halaman Dashboard Admin
 .dashboard-admin-body {
-    width: 1114px;
-    // height: 100vh;
+    width: 100%;
     padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -362,11 +364,14 @@
         }
     }
     .container2 {
-        display: flex;
-        flex-direction: row;
         justify-content: flex-end;
         padding-right: 20px;
         align-items: center;
+        .item {
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+        }
         .username {
             margin-right: 15px;
             font-weight: 600;
@@ -586,6 +591,7 @@
 }
 // Halaman Admin Driver
 .halaman-admin-edit-driver {
+    width: 83vw;
     padding: 20px 20px;
     .judul-halaman {
         box-shadow: var(--boxshadow);
@@ -773,6 +779,7 @@
 }
 // Halaman Admin Unit
 .halaman-admin-edit-unit {
+    width: 83vw;
     padding: 20px 20px;
     .judul-halaman {
         box-shadow: var(--boxshadow);
@@ -918,6 +925,7 @@
 }
 // Halaman Admin Bengkel
 .halaman-admin-edit-bengkel {
+    width: 83vw;
     padding: 20px 20px;
     .judul-halaman {
         box-shadow: var(--boxshadow);
@@ -989,6 +997,7 @@
 }
 // Halaman Admin Report Form
 .halaman-report-form {
+    width: 83vw;
     height: 100vh;
     .judul-halaman {
         font-size: 30px;
@@ -1040,6 +1049,7 @@
 }
 // Halaman Admin Perbaikan Report
 .halaman-perbaikan-report {
+    width: 83vw;
     height: 100vh;
     .judul-halaman {
         font-size: 30px;
@@ -1053,19 +1063,10 @@
         margin-top: 20px;
         border-radius: 10px;
         padding: 10px;
-        .menu {
-            margin-left: 10px;
-            ul {
-                margin: 0;
-                padding: 0;
-                display: flex;
-                flex-direction: row;
-                li {
-                    margin-right: 15px;
-                    button {
-                        width: 100px;
-                    }
-                }
+        .filter {
+            button {
+                margin-top: 15px;
+                margin-left: 10px;
             }
         }
     }
@@ -1091,6 +1092,7 @@
 }
 // Halaman Admin Driver
 .halaman-admin-driver {
+    width: 83vw;
     height: 100vh;
     .judul-halaman {
         font-size: 30px;
@@ -1132,9 +1134,32 @@
         // height: 80%;
         padding: 10px;
     }
+    .modal {
+        .item {
+            margin-bottom: 10px;
+        }
+    }
+    #tambahAkunDriverSuper {
+        .container2 {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    #inputDriverAdmin {
+        .item {
+            margin-bottom: 10px;
+        }
+    }
+    #inputAkunDriverAdmin {
+        .container2 {
+            display: flex;
+            flex-direction: column;
+        }
+    }
 }
 // Halaman Admin Unit
 .halaman-admin-unit {
+    width: 83vw;
     height: 100vh;
     .judul-halaman {
         font-size: 30px;
@@ -1173,9 +1198,15 @@
         // height: 80%;
         padding: 10px;
     }
+    #inputUnitSuper {
+        .item {
+            margin-bottom: 10px;
+        }
+    }
 }
 // Halaman Admin Bengkel
 .halaman-admin-bengkel {
+    width: 83vw;
     height: 100vh;
     .judul-halaman {
         font-size: 30px;
@@ -1214,9 +1245,15 @@
         // height: 80%;
         padding: 10px;
     }
+    #inputBengkelSuper {
+        .item {
+            margin-bottom: 10px;
+        }
+    }
 }
 // Halaman Admin input perbaikan
 .halaman-admin-input-perbaikan {
+    width: 83vw;
     padding: 20px 20px;
     .judul-halaman {
         box-shadow: var(--boxshadow);
@@ -1576,6 +1613,7 @@
 }
 // Halaman Super Admin Admin
 .halaman-super-admin-admin {
+    width: 83vw;
     height: 100vh;
     .judul-halaman {
         font-size: 30px;
@@ -1616,6 +1654,22 @@
         border-radius: 10px;
         // height: 80%;
         padding: 10px;
+    }
+    .modal {
+        .kolom {
+            .item {
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .akunAdmin {
+        .item {
+            margin-bottom: 10px;
+        }
+        .container2 {
+            display: flex;
+            flex-direction: column;
+        }
     }
 }
 // Halaman Admin Driver
@@ -1805,6 +1859,7 @@
 }
 // Halaman Admin Driver
 .halaman-super-admin-edit-admin {
+    width: 83vw;
     padding: 20px 20px;
     .judul-halaman {
         box-shadow: var(--boxshadow);
@@ -1918,6 +1973,7 @@
 }
 // Halaman Admin Report Form
 .halaman-report-form-super {
+    width: 83vw;
     height: 100vh;
     .judul-halaman {
         font-size: 30px;
@@ -2094,6 +2150,7 @@
     }
 }
 .halaman-driver-dashboard {
+    width: 84vw;
     padding: 20px;
     height: 100vh;
     display: flex;
@@ -2312,6 +2369,7 @@
     }
 }
 .halaman-driver {
+    width: 83vw;
     padding: 20px;
     .judul {
         font-size: 25px;
@@ -2388,6 +2446,7 @@
     }
 }
 .halaman-preview-form {
+    width: 83vw;
     padding: 30px;
     .judul {
         font-size: 25px;
@@ -2465,6 +2524,7 @@
 }
 // report
 .halaman-driver-report {
+    width: 84vw;
     padding: 15px;
     .judul {
         font-size: 30px;

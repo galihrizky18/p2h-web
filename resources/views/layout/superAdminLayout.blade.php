@@ -10,4 +10,4 @@
     @yield('body')
 </div>
 
-<x-footer></x-footer>   
+<x-footer></x-footer>

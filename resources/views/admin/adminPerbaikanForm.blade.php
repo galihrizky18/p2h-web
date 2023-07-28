@@ -14,7 +14,6 @@
             </div>
 
             <div class="container main-perbaikan-report">
-
                 <div class="filter">
                     <div class="filter1 filters">
                         <label for="">Filter Tanggal Perbaikan</label>
@@ -34,7 +33,6 @@
                     </div>
                 </div>
             </div>
-
 
             <div class="container data-report-form">
                 @if (session('success'))
@@ -77,6 +75,9 @@
                                         </button></td>
                                     <td>
                                         <div class="tombol">
+                                            <a href="/admin/pdf/perbaikanPDF/{{ $perbaikan->id }}">
+                                                <button type="button" class="btn btn-success ">Cetak</button>
+                                            </a>
                                             <a href="/admin/updatePerbaikan/{{ $perbaikan->id }}">
                                                 <button type="button" class="btn btn-info "
                                                     style="margin-right: 10px; width: 100px">Update</button>

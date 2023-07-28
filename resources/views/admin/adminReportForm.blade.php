@@ -11,12 +11,6 @@
         <div class="halaman-report-form">
             <div class="container judul-halaman">
                 <span>Report Form</span>
-                <a href="/admin/pdf/reportPDF">
-                    <button type="button" class="btn btn-success" target="_blank">Cetak</button>
-                </a>
-                <a href="/admin/pdf/reportPDFView">
-                    <button type="button" class="btn btn-success" target="_blank">View</button>
-                </a>
             </div>
 
             <div class="container main-report-form">
